@@ -31,7 +31,7 @@ Product.create(products, (err, docs) => {
   }
 
   docs.forEach((oneProduct) => {
-    console.log(`${oneProduct.name} - ${oneProduct_id}`);
+    console.log(`${oneProduct.name} - ${oneProduct._id}`);
   });
 });
 
