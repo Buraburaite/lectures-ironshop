@@ -21,13 +21,15 @@ router.get('/products/new', (req, res, next) => {
 });
 
 router.post('/products', (req, res, next) => {
-  let newProduct = new Product({
+
+  const theProduct = new Product({
     name : req.body.name,
     price : req.body.price,
     imageUrl : req.body.imageUrl,
     description : req.body.description
-  })
-  .save((err, doc) => {
+  });
+
+  theProduct.save((err, doc) => {
     if (err) {
       throw err;
     }
