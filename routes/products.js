@@ -16,7 +16,24 @@ router.get('/products', (req, res, next) => {
   });
 });
 
-// router.get('products/new', () => {});
-// router.post('products', () => {});
+router.get('/products/new', (req, res, next) => {
+  res.render('products/newProduct');
+});
+
+router.post('/products', (req, res, next) => {
+  let newProduct = new Product({
+    name : req.body.name,
+    price : req.body.price,
+    imageUrl : req.body.imageUrl,
+    description : req.body.description
+  })
+  .save((err, doc) => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  res.redirect('/products');
+});
 
 module.exports = router;
